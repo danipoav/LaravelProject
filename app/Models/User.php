@@ -46,6 +46,7 @@ class User extends Authenticatable
         ];
     }
 
+    //Activities can have more than 1 User
     public function activities()
     {
         return $this->hasMany(Activity::class);

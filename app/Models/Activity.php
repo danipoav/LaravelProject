@@ -18,6 +18,7 @@ class Activity extends Model
         'satisfaction',
     ];
 
+    //An User have 1 activity
     public function user()
     {
         return $this->belongsTo(User::class);
