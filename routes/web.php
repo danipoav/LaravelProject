@@ -21,6 +21,6 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('test', ResourceController::class);
 
-Route::resource('activity', ActivityController::class);
+Route::resource('activities', ActivityController::class);
 
 require __DIR__ . '/auth.php';
