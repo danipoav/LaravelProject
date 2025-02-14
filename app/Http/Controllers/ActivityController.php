@@ -21,7 +21,7 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        //
+        return view('activities.create');
     }
 
     /**
@@ -30,17 +30,17 @@ class ActivityController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'type' => 'required|in:surf,windsurf,kayak,atv,hot air ballon',
+            'type' => 'required|in:surf,windsurf,kayak,atv,hot air balloon',
             'user_id' => 'required|exists:users,id',
             'datetime' => 'required|date',
-            'paid' => 'required|boolean',
+            'paid' => 'nullable|boolean',
             'notes' => 'required|string',
             'satisfaction' => 'nullable|integer|min:0|max:10',
         ]);
 
         Activity::create($validateData);
 
-        return redirect()->route('activity.activity')->with('succes', 'Activity created correctly');
+        return redirect()->route('activities.index')->with('succes', 'Activity created correctly');
     }
 
     /**

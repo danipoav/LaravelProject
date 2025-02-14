@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class=" text-2xl font-bold mb-4">Activities</h1>
-    <a href="" class=" bg-blue-500 text-white px-4 py-2 rounded">Create new Activity</a>
+    <a href="{{ route('activities.create') }}" class=" bg-blue-500 text-white px-4 py-2 rounded">Create new Activity</a>
 
     <table class=" min-w-full mt-4 border">
         <thead>
