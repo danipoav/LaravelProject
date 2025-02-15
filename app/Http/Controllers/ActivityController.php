@@ -57,7 +57,8 @@ class ActivityController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $activity = Activity::findOrFail($id);
+        return view('activities.edit', compact('activity'));
     }
 
     /**
@@ -69,7 +70,7 @@ class ActivityController extends Controller
         $activity = Activity::findOrFail($id);
 
         $validateData = $request->validate([
-            'type' => 'required|in:surf,windsurf,kayak,atv,hot air ballon',
+            'type' => 'required|in:surf,windsurf,kayak,atv,hot air balloon',
             'user_id' => 'required|exists:users,id',
             'datetime' => 'required|date',
             'paid' => 'required|boolean',
@@ -78,6 +79,7 @@ class ActivityController extends Controller
         ]);
 
         $activity->update($validateData);
+        return redirect()->route('activities.index')->with('success', 'Activity updated correctly!');
     }
 
     /**
