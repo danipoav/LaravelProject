@@ -79,7 +79,7 @@ class ActivityController extends Controller
         ]);
 
         $activity->update($validateData);
-        return redirect()->route('activities.index')->with('success', 'Activity updated correctly!');
+        return redirect()->route('activities.index')->with('succes', 'Activity updated correctly!');
     }
 
     /**
