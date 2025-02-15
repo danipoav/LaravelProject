@@ -14,6 +14,7 @@
                 <th class=" border p-2">Status</th>
                 <th class=" border p-2">Notes</th>
                 <th class=" border p-2">Satisfaction</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,16 @@
                     <td class="border p-2">{{ $activity->paid }}</td>
                     <td class="border p-2">{{ $activity->notes }}</td>
                     <td class="border p-2">{{ $activity->satisfaction }}</td>
+                    <td class=" border p-2">
+                        <a href="{{ route('activities.show', $activity->id) }}" class=" text-blue-600">Show</a>
+                        <a href="{{ route('activities.edit', $activity->id) }}" class=" text-blue-600">Edit</a>
+                        <form action="{{ route('activities.destroy', $activity->id) }}" method="POST"
+                            class=" inline-block ml-2" onsubmit="return confirm('¿You sure?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class=" text-red-600">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

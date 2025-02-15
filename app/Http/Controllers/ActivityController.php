@@ -48,7 +48,7 @@ class ActivityController extends Controller
      */
     public function show(Activity $activity)
     {
-        return view('activity.activity', compact('activity'));
+        return view('activities.show', compact('activity'));
     }
 
     /**
@@ -86,5 +86,6 @@ class ActivityController extends Controller
     {
         $activity = Activity::findOrFail($id);
         $activity->delete();
+        return redirect()->route('activities.index')->with('succes', 'Activity removed correctly!');
     }
 }
