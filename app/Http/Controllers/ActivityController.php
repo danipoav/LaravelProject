@@ -46,8 +46,9 @@ class ActivityController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Activity $activity)
+    public function show(string $id)
     {
+        $activity = Activity::findOrFail($id);
         return view('activities.show', compact('activity'));
     }
 
